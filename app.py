@@ -21,51 +21,41 @@ st.title("Análise Casa de Apoio")
 # =====================================================
 # Upload principal - Casa de apoio
 # =====================================================
-
 uploaded_file = st.file_uploader(
     "Selecione o arquivo CSV da casa de apoio",
     type=["csv"],
     key="casa_apoio"
 )
-
 if uploaded_file is not None:
-
     dataset = pd.read_csv(uploaded_file)
-
+    
     # =====================================================
     # Conversão de data
     # =====================================================
-
     if 'data_solicitacao' in dataset.columns:
-
         dataset['data_solicitacao'] = pd.to_datetime(
             dataset['data_solicitacao'],
             errors='coerce'
         )
-
         # =====================================================
         # Filtro de datas
         # =====================================================
-
         col1, col2 = st.columns(2)
-
         with col1:
             data_inicio = st.date_input(
                 "Data inicial",
                 key="inicio_cr"
             )
-
         with col2:
             data_final = st.date_input(
                 "Data final",
                 key="fim_cr"
             )
-
         dataset_filtrado = dataset[
             (dataset['data_solicitacao'] >= pd.to_datetime(data_inicio)) &
             (dataset['data_solicitacao'] <= pd.to_datetime(data_final))
         ].copy()
-
+        
         # =====================================================
         # Indicadores gerais
         # =====================================================
