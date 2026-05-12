@@ -63,19 +63,15 @@ if uploaded_file is not None:
         total_vagas = dataset_filtrado[
             'total_tentativas'
         ].sum() if 'total_tentativas' in dataset_filtrado.columns else 0
-
         total_tentativas_aceitas = dataset_filtrado[
             'total_tentativa_aceitas'
         ].sum() if 'total_tentativa_aceitas' in dataset_filtrado.columns else 0
-
         total_tentativas_negadas = dataset_filtrado[
             'total_tentativa_negadas'
         ].sum() if 'total_tentativa_negadas' in dataset_filtrado.columns else 0
-
         st.subheader("Indicadores Gerais")
 
         col1, col2, col3 = st.columns(3)
-
         col1.metric("Total de solicitações", int(total_vagas))
         col2.metric("Solicitações aceitas", int(total_tentativas_aceitas))
         col3.metric("Solicitações negadas", int(total_tentativas_negadas))
@@ -83,16 +79,12 @@ if uploaded_file is not None:
         # =====================================================
         # Negativas
         # =====================================================
-
         if 'vagas_fornecidas' in dataset_filtrado.columns:
             dataset_filtrado['vagas_fornecidas'] = dataset_filtrado[
                 'vagas_fornecidas'
             ].fillna(0)
-
         if 'total_tentativa_negadas' in dataset_filtrado.columns:
-
             vagas_n = dataset_filtrado['total_tentativa_negadas'] > 0
-
             st.subheader("Pacientes com negativa")
 
             colunas_negativa = [
@@ -105,7 +97,6 @@ if uploaded_file is not None:
                 ]
                 if col in dataset_filtrado.columns
             ]
-
             st.dataframe(
                 dataset_filtrado.loc[vagas_n, colunas_negativa],
                 use_container_width=True
@@ -114,7 +105,6 @@ if uploaded_file is not None:
         # =====================================================
         # Motivos de negativa
         # =====================================================
-
         map_motivos = {
             1: "Capacidade da instituição",
             2: "Perfil incompatível",
@@ -132,32 +122,29 @@ if uploaded_file is not None:
             'motivo_negativa_6',
             'motivo_negativa_7'
         ]
-
+        
         colunas_existentes = [
             col for col in colunas_motivos
             if col in dataset_filtrado.columns
         ]
-
+        
         if len(colunas_existentes) > 0:
-
             for coluna in colunas_existentes:
                 dataset_filtrado[coluna] = dataset_filtrado[
                     coluna
                 ].replace(map_motivos)
-
+            
             motivos = dataset_filtrado[colunas_existentes]
-
             motivos_long = motivos.melt(value_name='Motivo')
             motivos_long = motivos_long.dropna(subset=['Motivo'])
 
             frequencia = motivos_long[
                 'Motivo'
             ].value_counts().reset_index()
-
+            
             frequencia.columns = ['Motivo', 'Quantidade']
-
+            
             st.subheader("Frequência dos motivos de negativa")
-
             st.dataframe(
                 frequencia,
                 use_container_width=True
