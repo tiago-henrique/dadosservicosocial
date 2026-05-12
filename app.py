@@ -490,46 +490,32 @@ if uploaded_file_ar is not None:
             rename_map_for_sum = {
                 'motivo_pendenciasocial___1':
                     'Ausência de cuidador ou recusa familiar',
-
                 'motivo_pendenciasocial___2':
                     'Reorganização familiar pendente',
-
                 'motivo_pendenciasocial___3':
                     'Treinamento do cuidador não concluído',
-
                 'motivo_pendenciasocial___4':
                     'Adequação domiciliar não concluída',
-
                 'motivo_pendenciasocial___5':
                     'Ausência de local seguro para retorno',
-
                 'motivo_pendenciasocial___6':
                     'Vaga em ILPI/Hospital-Lar pendente',
-
                 'motivo_pendenciasocial___7':
                     'Vaga em UCP pendente',
-
                 'motivo_pendenciasocial___8':
                     'Treinamento profissionais da rede',
-
                 'motivo_pendenciasocial___9':
                     'Oxigênio domiciliar pendente',
-
                 'motivo_pendenciasocial___10':
                     'Ventilador mecânico portátil pendente',
-
                 'motivo_pendenciasocial___11':
                     'Aspirador de vias aéreas pendente',
-
                 'motivo_pendenciasocial___12':
                     'Fornecimento de medicamentos',
-
                 'motivo_pendenciasocial___13':
                     'Fornecimento de insumos assistenciais',
-
                 'motivo_pendenciasocial___14':
                     'Órgão de proteção pendente',
-
                 'motivo_pendenciasocial___15':
                     'Outros'
             }
