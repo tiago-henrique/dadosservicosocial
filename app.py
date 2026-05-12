@@ -333,7 +333,7 @@ if uploaded_file_ar is not None:
 
         total_admissao = admissao_clean.shape[0]
 
-        st.subheader("Admissões")
+        st.subheader("Alta responsável")
 
         st.metric(
             "Total de atendimentos",
