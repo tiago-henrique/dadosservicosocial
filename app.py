@@ -52,15 +52,13 @@ if uploaded_file is not None:
         with col1:
             data_inicio = st.date_input(
                 "Data inicial",
-                value=pd.to_datetime("2026-04-01"),
-                key="inicio_casa"
+                key="inicio_cr"
             )
 
         with col2:
             data_final = st.date_input(
                 "Data final",
-                value=pd.to_datetime("2026-04-30"),
-                key="fim_casa"
+                key="fim_cr"
             )
 
         dataset_filtrado = dataset[
