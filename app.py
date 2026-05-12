@@ -282,7 +282,7 @@ else:
 st.divider()
 
 uploaded_file_ar = st.file_uploader(
-    "Selecione o arquivo CSV de admissões",
+    "Selecione o arquivo CSV de alta responsável",
     type=["csv"],
     key="admissao"
 )
@@ -310,13 +310,13 @@ if uploaded_file_ar is not None:
 
         with col1:
             data_abertura_inicio = st.date_input(
-                "Data inicial admissões",
+                "Data inicial altas",
                 key="inicio_adm"
             )
 
         with col2:
             data_abertura_final = st.date_input(
-                "Data final admissões",
+                "Data final altas",
                 key="fim_adm"
             )
 
