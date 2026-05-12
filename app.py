@@ -586,4 +586,4 @@ if uploaded_file_ar is not None:
                 )
 
 else:
-    st.warning("Envie o arquivo CSV de admissões.")
+    st.warning("Envie o arquivo CSV de alta responsável.")
